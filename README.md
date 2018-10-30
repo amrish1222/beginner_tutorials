@@ -15,6 +15,7 @@
   - messages
   - packages
   - catkin
+  - rqt_graph
   
    In this project the Talker node publishes to the topic "chatter" and the Listener node subscribes to the topic and prints
    it to the terminal
@@ -24,6 +25,9 @@ Publisher Terminal Output-
 
 Subscriber Terminal Output-
 ![alt text](https://github.com/amrish1222/beginner_tutorials/blob/master/images/Listener.png)
+
+ROS computation graph
+![alt text](https://github.com/amrish1222/beginner_tutorials/blob/master/images/rqt_graph.png)
 
 # Dependencies
 - ROS Kinetic
@@ -83,3 +87,10 @@ Note- To avoid using multiple terminal, a terminal Multiplexer like [tmux](https
 # Termination Instructions
 
 In a terminal at a time with ROS master being the last press **Ctrl+C** 
+
+# ROS Computation graph
+
+To view the ROS computation graph, run the following command in a terminal while the ROS master, publisher and subscriber nodes are running
+```
+rqt_graph
+```
