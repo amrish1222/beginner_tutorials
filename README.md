@@ -2,7 +2,7 @@
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/amrish1222/beginner_tutorials.git)
 
 # Overview
- This ROS tutorial covers how to write a publisher and subscriber node in C++.
+ This ROS tutorial covers how to write a [publisher and subscriber](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29) node in C++.
  
   Publisher node- Talker
   
@@ -13,7 +13,7 @@
   - nodes
   - topic
   - messages
-  - package
+  - packages
   - catkin
   
    In this project the Talker node publishes to the topic "chatter" and the Listener node subscribes to the topic and prints
@@ -61,3 +61,25 @@ Setting the environment variables
 source devel/setup.bash
 ```
 
+# Running Instructions
+
+Start ROS master- open a terminal and run
+```
+roscore
+```
+
+Run the talker node- open another terminal and run
+```
+rosrun beginner_tutorials talker
+```
+
+Run the listener node- open another terminal and run
+```
+rosrun beginner_tutorials listener
+```
+
+Note- To avoid using multiple terminal, a terminal Multiplexer like [tmux](https://linoxide.com/how-tos/install-tmux-manage-multiple-linux-terminals/) can be used. A beginner tutorial to tmux can be found [here](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340)
+
+# Termination Instructions
+
+In a terminal at a time with ROS master being the last press **Ctrl+C** 
