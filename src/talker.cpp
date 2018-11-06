@@ -21,14 +21,43 @@
  * @file talker.cpp
  * @brief This demonstrates simple sending of messages over the ROS system.
  * @author Amrish Baskaran
- * @Copyright MIT License 
+ * @Copyright MIT License
  * @Copyright 2018 Amrish Baskaran
  */
 
 #include <sstream>
-
+#include <string>
 #include "ros/ros.h"
+// Include header file for the service type definition
+#include "beginner_tutorials/toggle_string.h"
+
 #include "std_msgs/String.h"
+
+// setting default outputString
+std::string outputString = "Go Terps!!";
+
+/**
+ * @brief Callback function to change base string
+ * @param Request and response
+ * @return none.
+ */
+bool toggleMessage(beginner_tutorials::toggle_string::Request &req,
+                   beginner_tutorials::toggle_string::Response &resp) {
+  // Changing the base string
+  std::string line;
+  if (!req.stringReq.empty()) {
+    outputString = req.stringReq;
+    ROS_DEBUG_STREAM("The base string has been changed");
+    ROS_INFO_STREAM("The new  base string is: " << outputString);
+    resp.stringResp = "The new  base string is change to: " + outputString;
+    return true;
+  } else {
+    // No string received
+    resp.stringResp = "Empty argument";
+    ROS_FATAL_STREAM("Empty string received as argument");
+    return false;
+  }
+}
 
 /**
  * @brief Main function
@@ -37,14 +66,31 @@
  * @return status.
  */
 int main(int argc, char **argv) {
+  int loopRateInput = 10;
+  if (argc > 1) {
+    loopRateInput = atoi(argv[1]);
+  }
+  else {
+    // setting to default loop rate
+    loopRateInput = 10;
+  }
+  if (loopRateInput == 0) {
+    ROS_ERROR_STREAM("Invalid Loop rate, use loop rate greater than 0");
+    loopRateInput = 10;
+    ROS_INFO_STREAM("Setting default loop rate = 10");
+  }
+  ROS_INFO_STREAM("Loop rate now set to " << loopRateInput);
   // Initializing ROS system
   ros::init(argc, argv, "talker");
   // Creating NodeHanle
   ros::NodeHandle n;
+  // Register our service with the master.
+  ros::ServiceServer server = n.advertiseService("toggle_message",
+                                                 &toggleMessage);
   // Advertise publishing to topic chatter
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
   // Setting loop rate
-  ros::Rate loop_rate(10);
+  ros::Rate loop_rate(loopRateInput);
   // Message count
   int count = 0;
   while (ros::ok()) {
@@ -52,7 +98,10 @@ int main(int argc, char **argv) {
     std_msgs::String msg;
     // Storing data to stringstream
     std::stringstream ss;
-    ss << "Go Terps! " << count;
+    ss << outputString << ": " << count;
+    if (count >= 100) {
+      ROS_WARN_STREAM_ONCE("Talker has run more than 100 iterations");
+    }
     // Writing to msg
     msg.data = ss.str();
     // Sending the msg to ROS
