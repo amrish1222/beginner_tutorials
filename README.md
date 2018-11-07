@@ -120,7 +120,7 @@ Note- To avoid using multiple terminal, a terminal Multiplexer like [tmux](https
 roslaunch beginner_tutorials beginner_tutorial.launch
 ```
 
-- Running with Talker publish rate = 20
+- Running with Talker publish rate = 20 using command-line argument
 ```
 roslaunch beginner_tutorials beginner_tutorial.launch talker_rate:=20
 ```
