@@ -85,8 +85,16 @@ Setting the environment variables
 ```
 source devel/setup.bash
 ```
+# Changing Branch to Week10_HW
 
-# Running Instructions
+Navigate to the beginner_tutorial folder and change the branch
+```
+cd ~/catkin_ws/src/beginner_tutorial
+git checkout Week10_HW
+```
+
+
+# 1. Running Instructions (using rosrun)
 
 Start ROS master- open a terminal and run
 ```
@@ -104,6 +112,18 @@ rosrun beginner_tutorials listener
 ```
 
 Note- To avoid using multiple terminal, a terminal Multiplexer like [tmux](https://linoxide.com/how-tos/install-tmux-manage-multiple-linux-terminals/) can be used. A beginner tutorial to tmux can be found [here](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340)
+
+# 2. Running Instructions (using launch file)
+
+- Running with default Talker publish rate
+```
+roslaunch beginner_tutorials beginner_tutorial.launch
+```
+
+- Running with Talker publish rate = 20
+```
+roslaunch beginner_tutorials beginner_tutorial.launch talker_rate:=20
+```
 
 # Termination Instructions
 
