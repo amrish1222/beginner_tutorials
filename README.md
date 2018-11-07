@@ -113,6 +113,12 @@ rosrun beginner_tutorials listener
 
 Note- To avoid using multiple terminal, a terminal Multiplexer like [tmux](https://linoxide.com/how-tos/install-tmux-manage-multiple-linux-terminals/) can be used. A beginner tutorial to tmux can be found [here](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340)
 
+Talker node can also be started with different publish rates by using a command line argument
+```
+rosrun beginner_tutorials talker 20
+```
+The above command will set the publish rate to 20.
+
 # 2. Running Instructions (using launch file)
 
 - Running with default Talker publish rate
