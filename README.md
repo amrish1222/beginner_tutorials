@@ -125,9 +125,18 @@ roslaunch beginner_tutorials beginner_tutorial.launch
 roslaunch beginner_tutorials beginner_tutorial.launch talker_rate:=20
 ```
 
+# Using the toggle_message service to change the base string of Talker node
+
+ After starting the talker node using the instructions above, the base string can be changed by executing the following command. For example the following command-line can be executed to change the base string to "Winner Winner".
+```
+rosservice call /toggle_message "stringReq: 'Winner Winner'"
+```
+
 # Termination Instructions
 
 In a terminal at a time with ROS master being the last press **Ctrl+C** 
+
+If launch file is used then pressing **Ctrl+C** in the terminal used for launching can terminate the program.
 
 # ROS Computation graph
 
