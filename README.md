@@ -131,6 +131,13 @@ roslaunch beginner_tutorials beginner_tutorial.launch talker_rate:=20
 ```
 rosservice call /toggle_message "stringReq: 'Winner Winner'"
 ```
+- Warning
+
+If an empty string is sent using
+```
+rosservice call /toggle_message "stringReq: ''"
+```
+Then a Fatal error is encountered and logged.
 
 # Termination Instructions
 
