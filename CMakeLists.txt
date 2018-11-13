@@ -9,6 +9,8 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   tf
 )
+
+
 ## Declare ROS messages and services
 ## add_message_files(FILES )
 add_service_files(FILES toggle_string.srv)
@@ -29,3 +31,15 @@ add_dependencies(talker beginner_tutorials_generate_messages_cpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+
+
+## Catkin testing
+if (CATKIN_ENABLE_TESTING)
+ find_package(rostest REQUIRED)
+ add_rostest_gtest( beginner_tutorials_test test/talker_test.launch
+ 					test/beginner_tutorials_test_main.cpp
+  					test/talker_test.cpp 					
+ 					)
+ target_link_libraries(beginner_tutorials_test ${catkin_LIBRARIES})
+ add_dependencies(beginner_tutorials_test beginner_tutorials_generate_messages_cpp)
+ endif()
