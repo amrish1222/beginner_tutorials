@@ -1,9 +1,14 @@
 Command-cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
-Done processing ./src/listener.cpp
 
 Output-
-./src/talker.cpp:37:  Static/global string variables are not permitted.  [runtime/string] [4]
-./src/talker.cpp:44:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::toggle_string::Request &req  [runtime/references] [2]
-./src/talker.cpp:45:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::toggle_string::Response &resp  [runtime/references] [2]
+Done processing ./src/listener.cpp
+./src/talker.cpp:46:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::toggle_string::Request &req  [runtime/references] [2]
+./src/talker.cpp:47:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::toggle_string::Response &resp  [runtime/references] [2]
 Done processing ./src/talker.cpp
-Total errors found: 3
+Done processing ./test/beginner_tutorials_test_main.cpp
+Done processing ./test/talker_test.cpp
+Skipping input 'Done': Can't open for reading
+Skipping input 'processing': Can't open for reading
+Done processing ./src/listener.cpp
+Total errors found: 2
+
