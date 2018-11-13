@@ -25,10 +25,10 @@
  * @Copyright 2018 Amrish Baskaran
  */
 
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 #include <string>
 #include "ros/ros.h"
-#include <tf/transform_broadcaster.h>
 
 // Include header file for the service type definition
 #include "beginner_tutorials/toggle_string.h"
@@ -36,7 +36,7 @@
 #include "std_msgs/String.h"
 
 // setting default outputString
-std::string outputString = "Go Terps!!";
+extern std::string outputString = "Go Terps!!";
 
 /**
  * @brief Callback function to change base string
@@ -46,7 +46,6 @@ std::string outputString = "Go Terps!!";
 bool toggleMessage(beginner_tutorials::toggle_string::Request &req,
                    beginner_tutorials::toggle_string::Response &resp) {
   // Changing the base string
-  std::string line;
   if (!req.stringReq.empty()) {
     outputString = req.stringReq;
     ROS_DEBUG_STREAM("The base string has been changed");
@@ -90,8 +89,7 @@ int main(int argc, char **argv) {
   int loopRateInput = 10;
   if (argc > 1) {
     loopRateInput = atoi(argv[1]);
-  }
-  else {
+  } else {
     // setting to default loop rate
     loopRateInput = 10;
   }
