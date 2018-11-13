@@ -1,0 +1,9 @@
+Command-
+cppcheck --enable=all --std=c++11 --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+
+Output-
+Checking src/listener.cpp...
+1/2 files checked 34% done
+Checking src/talker.cpp...
+[src/talker.cpp:47]: (style) Unused variable: line
+2/2 files checked 100% done
