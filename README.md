@@ -74,9 +74,17 @@ Cloning the repository
 ```
 git clone --recursive https://github.com/amrish1222/beginner_tutorials.git
 ```
+# Changing Branch to Week11_HW
+
+Navigate to the beginner_tutorial folder and change the branch
+```
+cd ~/catkin_ws/src/beginner_tutorial
+git checkout Week10_HW
+```
 
 Build
 ```
+cd ..
 cd ..
 catkin_make
 ```
@@ -85,14 +93,6 @@ Setting the environment variables
 ```
 source devel/setup.bash
 ```
-# Changing Branch to Week10_HW
-
-Navigate to the beginner_tutorial folder and change the branch
-```
-cd ~/catkin_ws/src/beginner_tutorial
-git checkout Week10_HW
-```
-
 
 # 1. Running Instructions (using rosrun)
 
