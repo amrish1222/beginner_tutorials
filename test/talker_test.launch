@@ -1,0 +1,16 @@
+<launch>
+      <arg name = "talker_rate" default = "5" />
+      <node
+      name="talker"
+      pkg="beginner_tutorials"
+      type="talker"
+      launch-prefix="xterm -e"
+      respawn ="true"
+      args="$(arg talker_rate)"     
+    />
+      <test 
+ 		test-name="beginner_tutorials_test" 
+ 	    pkg="beginner_tutorials" 
+   	    type="beginner_tutorials_test" 
+    />
+</launch>
