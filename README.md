@@ -15,6 +15,8 @@
  
  - Creating a launch file that modifies the talker node by changing the publish frequency.
  
+ - Modify Talker node to broadcast a tf frame called /talk with parent /world. The transform has a non zero translation and rotation. 
+ 
   Basics concepts-
   - ROS master
   - nodes
@@ -26,9 +28,12 @@
   - launch file
   - services
   - launch arguments
+  - tf frames
   
    In this project the Talker node publishes to the topic "chatter" and the Listener node subscribes to the topic and prints
    it to the terminal.
+   
+   It also broadcasts a tf frame called /talk with parent /world.
    
    Also using the launch file both the talker and listener nodes are launched in two different windows. Using a service we change the base string published by the talker. A command line argument can be used to change the publish frequency of the talker node.
    
@@ -74,9 +79,17 @@ Cloning the repository
 ```
 git clone --recursive https://github.com/amrish1222/beginner_tutorials.git
 ```
+# Changing Branch to Week11_HW
+
+Navigate to the beginner_tutorial folder and change the branch
+```
+cd ~/catkin_ws/src/beginner_tutorial
+git checkout Week10_HW
+```
 
 Build
 ```
+cd ..
 cd ..
 catkin_make
 ```
@@ -85,14 +98,6 @@ Setting the environment variables
 ```
 source devel/setup.bash
 ```
-# Changing Branch to Week10_HW
-
-Navigate to the beginner_tutorial folder and change the branch
-```
-cd ~/catkin_ws/src/beginner_tutorial
-git checkout Week10_HW
-```
-
 
 # 1. Running Instructions (using rosrun)
 
@@ -144,6 +149,33 @@ If an empty string is sent using
 rosservice call /toggle_message "stringReq: ''"
 ```
 Then a Fatal error is encountered and logged.
+
+# Inspecting tf frames using tf tools
+
+- view_frames creates a diagram of the frames being broadcast by tf over ROS.
+
+```
+rosrun tf view_frames
+```
+- Here a tf listener is listening to the frames that are being broadcast over ROS and drawing a tree of how the frames are connected. To view the tree:
+
+```
+evince frames.pdf
+```
+
+An example of this pdf can be viewed in the results folder
+
+- rqt_tf_tree is a runtime tool for visualizing the tree of frames being broadcast over ROS.
+
+```
+rosrun rqt_tf_tree rqt_tf_tree
+```
+
+- tf_echo reports the transform between any two frames broadcast over ROS.
+
+```
+rosrun tf tf_echo world talk
+```
 
 # Termination Instructions
 
