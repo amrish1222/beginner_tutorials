@@ -31,6 +31,9 @@
 #include "beginner_tutorials/toggle_string.h"
 #include "std_msgs/String.h"
 
+/**
+ * @brief Test for existence of service
+ */
 TEST(TestNodeTalker, existenceTest) {
   // Creating node handle
   ros::NodeHandle nh;
@@ -44,6 +47,9 @@ TEST(TestNodeTalker, existenceTest) {
   ASSERT_TRUE(exists);
 }
 
+/**
+ * @brief Test the service by changing the request
+ */
 TEST(TestNodeTalker, toggleMsgTest) {
   // Creating node handle
   ros::NodeHandle nh;
