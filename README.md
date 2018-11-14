@@ -59,9 +59,6 @@ Output after using the service toggle_message to change the base string to "Winn
 ROS computational graph when using the launch file- beginner_tutorials.launch
 ![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week10_HW/images/NewRqt_Graph.png)
 
-ROS computational graph with tf and rosbag recording
-![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week11_HW/images/rqt_graphtf.png)
-
 # Dependencies
 - ROS Kinetic
 
@@ -211,6 +208,35 @@ cd ~/catkin_ws
 rostest beginner_tutorials talkerTest.launch
 ```
 
+# Using rosbag
+
+- Record all topics
+
+```
+rosbag record -a
+```
+
+- To display the summary of the example bag file 
+
+```
+cd ~/catkin_ws/src/beginner_tutorials/results
+beginner_tutorials/results
+```
+
+- To play the example bag file, first run roscore and in another terminal use the command:
+
+```
+rosbag play rosbag_beginner_tutorials.bag
+```
+
+- To view the rosbag output to the chatter topic start ros master and in one terminal
+
+```
+rosrun beginner_tutorials listener
+```
+
+Now running the example file with the instructions above will produce the following output:
+![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week11_HW/images/rosbagPlay_listener.png)
 
 # Termination Instructions
 
