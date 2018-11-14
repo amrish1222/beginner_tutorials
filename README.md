@@ -238,6 +238,16 @@ rosrun beginner_tutorials listener
 Now running the example file with the instructions above will produce the following output:
 ![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week11_HW/images/rosbagPlay_listener.png)
 
+- Enable/ Disable rosbag while using Launch file
+
+rosbag recording is disabled by default.
+
+To enable rosbag recording the following command should be used
+
+```
+roslaunch beginner_tutorials beginner_tutorial.launch  rosbag_record:=1
+```
+
 # Termination Instructions
 
 In a terminal at a time with ROS master being the last press **Ctrl+C** 
