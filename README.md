@@ -242,7 +242,7 @@ Now running the example file with the instructions above will produce the follow
 
 rosbag recording is disabled by default.
 
-To enable rosbag recording the following command should be used
+# To enable rosbag recording the following command should be used
 
 ```
 roslaunch beginner_tutorials beginner_tutorial.launch  rosbag_record:=1
