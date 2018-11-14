@@ -17,6 +17,8 @@
  
  - Modify Talker node to broadcast a tf frame called /talk with parent /world. The transform has a non zero translation and rotation. 
  
+ - Using gtest and rostest to create a Level 2 integration test, that tests the Talker node 
+ 
   Basics concepts-
   - ROS master
   - nodes
@@ -29,6 +31,8 @@
   - services
   - launch arguments
   - tf frames
+  - gtest
+  - rostest
   
    In this project the Talker node publishes to the topic "chatter" and the Listener node subscribes to the topic and prints
    it to the terminal.
@@ -63,7 +67,14 @@ ROS computational graph when using the launch file- beginner_tutorials.launch
 - Catkin
 
    Information and installation instructions of Catkin can be found [here](http://wiki.ros.org/catkin)
-   
+ 
+ - Gtest
+ 
+   Information on usage and installation of gtest can be found [here](http://wiki.ros.org/gtest)
+    
+ - Rostest
+ 
+   Information on usage of rostest can be found [here](http://wiki.ros.org/rostest)  
    
 # Build Instructions
 
@@ -176,6 +187,27 @@ rosrun rqt_tf_tree rqt_tf_tree
 ```
 rosrun tf tf_echo world talk
 ```
+
+# Running ROS Tests
+
+- Using Catkin_make
+
+```
+cd ~/catkin_ws
+catkin_make run_tests beginner_tutorials
+```
+
+The output will look like this
+
+![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week11_HW/images/Catkin_make%20run_tests.png)
+
+- Using Launch file
+
+```
+cd ~/catkin_ws
+rostest beginner_tutorials talkerTest.launch
+```
+
 
 # Termination Instructions
 
