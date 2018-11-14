@@ -59,6 +59,9 @@ Output after using the service toggle_message to change the base string to "Winn
 ROS computational graph when using the launch file- beginner_tutorials.launch
 ![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week10_HW/images/NewRqt_Graph.png)
 
+ROS computational graph with tf and rosbag recording
+![alt text](https://github.com/amrish1222/beginner_tutorials/blob/Week11_HW/images/rqt_graphtf.png)
+
 # Dependencies
 - ROS Kinetic
 
